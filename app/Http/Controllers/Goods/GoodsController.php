@@ -15,6 +15,8 @@ class GoodsController extends Controller
     /**
      * Show the all goods.
      *
+     * Route ("/all_goods", method = "GET")
+     *
      * @return array
      */
     public function mainGoods(): array
@@ -41,6 +43,15 @@ class GoodsController extends Controller
 
     /**
      * Add the good.
+     * Example for HTTP JSON
+     * Route ("/add_good", method = "POST")
+     *  {
+     *      "load_city_name": "Дніпро",
+     *      "weight": "20т",
+     *      "unload_city_name": "Одесса",
+     *      "good": "ТНП",
+     *      "date": "2021-08-20"
+     *  }
      *
      * @param AddGoodRequest $request
      * @return Response

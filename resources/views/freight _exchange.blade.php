@@ -49,11 +49,68 @@
                             </form>
 
                         </div>
-                        <div class="relative  ml-8 flex-1">
-                            <form class="bg-white h-full" action="/add_cargo">
-                                <input class="bg-white " type="submit" value="Додати вантаж">
-                            </form>
+                        <div id="app">
+                            <button type="button" class="btn" @click="showModal">
+                                Додати Вантаж
+                            </button>
+
+                            <modal v-show="isModalVisible" @close="closeModal"></modal>
                         </div>
+
+                        <script type="text/x-template" id="modal">
+
+                            <transition name="modal-fade">
+                                <div class="modal-backdrop" role="dialog">
+                                    <div class="modal" ref="modal">
+                                        <header class="modal-header">
+                                            <slot name="header">
+                                                <h2>
+                                                    This is the default tile!
+                                                </h2>
+
+                                                <button type="button" class="btn-close btn-right" @click="close" aria-label="Close modal">
+                                                    x
+                                                </button>
+                                            </slot>
+                                        </header>
+
+                                        <section class="modal-body">
+                                            <slot name="body">
+                                                <div class="relative ml-8 flex-1">
+                                                    <form class="bg-white h-full"  method="post" action="/add_good">
+                                                        @csrf
+                                                        <div>
+                                                            <input class="bg-white " type="text" name="load_city_name" placeholder="Місто завантаження">
+                                                        </div>
+                                                        <div>
+                                                            <input class="bg-white " type="text" name="unload_city_name" placeholder="Місто вивантаження">
+                                                        </div>
+                                                        <div>
+                                                            <input class="bg-white " type="text" name="weight" placeholder="Масса вантажу">
+                                                        </div>
+                                                        <div>
+                                                            <input class="bg-white " type="text" name="good" placeholder="Назва вантажу">
+                                                        </div>
+                                                        <div>
+                                                            <input class="bg-white " type="text" name="date" placeholder="Дата завантаження">
+                                                        </div>
+                                                        <button class="bg-white" type="submit">Додати вантаж</button>
+                                                    </form>
+                                                </div>
+                                            </slot>
+                                        </section>
+
+                                        <footer class="modal-footer">
+                                            <slot name="footer">
+                                                <button type="button" class="btn btn-green" @click="close" aria-label="Close modal">
+                                                    Close me!
+                                                </button>
+                                            </slot>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </transition>
+                        </script>
                     </div>
                     <div class="ml-20">
                         <form>
@@ -81,26 +138,22 @@
                 @endif
             </table>
         </div>
-        <div class="relative ml-8 flex-1" id="add_good">
-            <form class="bg-white h-full"  method="post" action="/add_good">
-                @csrf
-                <div>
-                    <input class="bg-white " type="text" name="load_city_name" placeholder="Місто завантаження">
-                </div>
-                <div>
-                    <input class="bg-white " type="text" name="unload_city_name" placeholder="Місто вивантаження">
-                </div>
-                <div>
-                    <input class="bg-white " type="text" name="weight" placeholder="Масса вантажу">
-                </div>
-                <div>
-                    <input class="bg-white " type="text" name="good" placeholder="Назва вантажу">
-                </div>
-                <div>
-                    <input class="bg-white " type="text" name="date" placeholder="Дата завантаження">
-                </div>
-                <button class="bg-white" type="submit">Додати вантаж</button>
-            </form>
-        </div>
+
+{{--<!--        <script>--}}
+{{--            // register modal component--}}
+{{--            import Vue from "vue";--}}
+
+{{--            Vue.component("modal", {--}}
+{{--                template: "#modal-template"--}}
+{{--            });--}}
+
+{{--            // start app--}}
+{{--            new Vue({--}}
+{{--                el: "#app",--}}
+{{--                data: {--}}
+{{--                    showModal: false--}}
+{{--                }--}}
+{{--            });--}}
+{{--        </script>-->--}}
     </body>
 </html>

@@ -15,17 +15,17 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+// webpack.mix.js --
+//
+// const webpack = require("laravel-mix/src/BabelConfig");
+// mix.js('src/app.js', './')
+// mix.sass('src/app.scss', './',[])
+// mix.options({
+//     processCssUrls: false
+// });
 
-module.exports = {
-    module: {
-        rules: [
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            }
-        ]
-    }
-}
+mix.sourceMaps()
+
 
 // mix.disableSuccessNotifications();
 

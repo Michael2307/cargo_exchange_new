@@ -9,7 +9,7 @@ Route::get('/', function (GoodsController $allGoods) {
     return view('freight _exchange', compact('goods'));
 });
 
-Route::get('/allGoods', function (GoodsController $allGoods) {
+Route::get('/all_goods', function (GoodsController $allGoods) {
     $goods = $allGoods->mainGoods();
 
     return new Response($goods);

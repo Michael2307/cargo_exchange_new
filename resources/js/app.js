@@ -1,17 +1,36 @@
-require('./bootstrap');
-const Vue = require("vue");
+import Vue from "vue";
 
 
-window.Vue = require('vue');
+const Modal = {
+    name: 'modal',
+    template: '#modal',
+    methods: {
+        close(event) {
+            this.$emit('close');
+        },
+    },
+};
 
-const app = new Vue({
+new Vue({
     el: '#app',
-    data: {
-        message: 'Hello Vue'
-    }
+    name: 'app',
+    components: {
+        modal: Modal,
+    },
+    data () {
+        return {
+            isModalVisible: false,
+        };
+    },
+    methods: {
+        showModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        }
+    },
 });
-
-
 
 
 
