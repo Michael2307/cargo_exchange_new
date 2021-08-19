@@ -17,9 +17,9 @@ class CreatePointsTable extends Migration
             $table->id();
             $table->string('name');
             $table->date('date');
-            $table->string('good');
-            $table->unsignedBigInteger('loads_id')->nullable();
-            $table->foreign('loads_id')->references('id')->on('loads');
+            $table->float('lat');
+            $table->float('lng');
+            $table->foreignId('loads_id')->nullable()->references('id')->on('loads')->onDelete('cascade');
         });
     }
 

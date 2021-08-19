@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Loads;
+use App\Models\Load;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LoadsFactory extends Factory
@@ -12,7 +12,7 @@ class LoadsFactory extends Factory
      *
      * @var string
      */
-    protected $model = Loads::class;
+    protected $model = Load::class;
 
     /**
      * Define the model's default state.

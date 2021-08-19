@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Points extends Model
+class Point extends Model
 {
     use HasFactory;
-
-    protected $table = 'loads';
 
     /**
      * The attributes that are mass assignable.
@@ -27,8 +25,8 @@ class Points extends Model
     {
     }
 
-    public function loads(): HasOne
+    public function loads():BelongsTo
     {
-        return $this->hasOne('App\Models\Loads');
+        return $this->belongsTo(Load::class);
     }
 }

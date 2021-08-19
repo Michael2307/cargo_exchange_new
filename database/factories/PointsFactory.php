@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Points;
+use App\Models\Point;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PointsFactory extends Factory
@@ -12,7 +12,7 @@ class PointsFactory extends Factory
      *
      * @var string
      */
-    protected $model = Points::class;
+    protected $model = Point::class;
 
     /**
      * Define the model's default state.
