@@ -24,7 +24,13 @@ class AddGoodRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'unload_city_name' => ['required', 'string', 'max:255'],
+            'good' => ['required', 'bool'],
+            'date' => ['required', 'date'],
+            'points' => ['required', 'array', 'min:2'],
+            'points.*.name' => ['required', 'string'],
+            'points.*.lat' => ['required', 'numeric'],
+            'points.*.lng' => ['required', 'numeric'],
         ];
     }
 }

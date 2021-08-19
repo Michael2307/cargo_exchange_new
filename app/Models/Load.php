@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Loads extends Model
+class Load extends Model
 {
     use HasFactory;
 
@@ -20,8 +21,8 @@ class Loads extends Model
         'weight',
     ];
 
-    public function id(): BelongsTo
+    public function points(): HasMany
     {
-        return $this->belongsTo(Points::class);
+        return $this->hasMany(Point::class);
     }
 }
